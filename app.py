@@ -5,6 +5,11 @@ import uuid
 app = Flask(__name__)
 
 
+@app.route("/")
+def index():
+    return "REST API for LH"
+
+
 @app.route("/tts/<text>", methods=["GET"])
 def tts(text):
     id = uuid.uuid4()
