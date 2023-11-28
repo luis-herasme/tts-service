@@ -13,8 +13,13 @@ def index():
 @app.route("/tts/<text>", methods=["GET"])
 def tts(text):
     id = uuid.uuid4()
+
+    text = text.replace("'", "")
+    text = text.replace('"', "")
+    text = text.replace("`", "")
+
     command = (
-        f"echo '{text}' | piper --model en_US-amy-medium --output_file tmp/{id}.wav"
+        f'echo "{text}" | piper --model en_US-amy-medium --output_file tmp/{id}.wav'
     )
     os.system(command)
 
