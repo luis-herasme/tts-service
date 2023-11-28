@@ -5,7 +5,7 @@ import uuid
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     return "REST API for LH"
 
